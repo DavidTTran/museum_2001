@@ -21,7 +21,7 @@ class Museum
 
   def patrons_by_exhibit_interest
     @exhibits.reduce({}) do |acc, exhibit|
-      acc[exhibit] = @patrons.find_all {|patron| patron.interests.include?(exhibit.name)}
+      acc[exhibit] = @patrons.find_all { |patron| patron.interests.include?(exhibit.name) }
       acc
     end
   end
@@ -42,7 +42,7 @@ class Museum
   end
 
   def announce_lottery_winner(exhibit)
-    # require "pry"; binding.pry
     p "#{draw_lottery_winner(exhibit).name} has won the #{exhibit.name} exhibit lottery"
   end
+
 end
