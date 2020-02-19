@@ -1,9 +1,7 @@
 require './lib/exhibit'
-require './lib/patron'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'mocha/minitest'
-require './lib/exhibit'
 
 class ExhibitTest < Minitest::Test
 
@@ -19,4 +17,5 @@ class ExhibitTest < Minitest::Test
     assert_equal "Gems and Minerals", @exhibit.name
     assert_equal 0, @exhibit.cost
   end
+
 end
