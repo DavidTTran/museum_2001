@@ -25,4 +25,24 @@ class Museum
       acc
     end
   end
+
+  def ticket_lottery_contestants(exhibit)
+    @patrons.find_all do |patron|
+      (patron.interests.include?(exhibit.name) && patron.spending_money <= exhibit.cost)
+    end
+  end
+
+  def draw_lottery_winner(exhibit)
+    if exhibit.cost != 0
+      winner = ticket_lottery_contestants(exhibit).sample
+    else
+      nil
+    end
+    winner
+  end
+
+  def announce_lottery_winner(exhibit)
+    # require "pry"; binding.pry
+    p "#{draw_lottery_winner(exhibit).name} has won the #{exhibit.name} exhibit lottery"
+  end
 end
